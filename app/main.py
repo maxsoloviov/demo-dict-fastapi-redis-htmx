@@ -19,10 +19,10 @@ suggestion_trie = Trie()
 @app.on_event("startup")
 @inject
 async def startup_event(dictionary_service: DictionaryService = Depends(Provide[Container.service])):
-    # await dictionary_service.clear()
+    await dictionary_service.clear()
     dictionary = dictionary_service.load_dictionary()
     dictionary_service.populate_trie(suggestion_trie, dictionary.keys())
-    # await dictionary_service.populate(dictionary)
+    await dictionary_service.populate(dictionary)
 
 
 @app.api_route("/")
