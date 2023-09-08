@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example that shows off a responsive product landing page.">
+    <title>{% block title %}Dictionary German-English{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    {% block additional_css %}{% endblock %}
+</head>
+<body>
+{% block main_content %}{% endblock %}
+
+<div class="footer l-box is-center">
+    View the source of this layout to learn more. Made with love by the Pure Team.
+</div>
+
+
+
+<script src="https://unpkg.com/htmx.org@1.9.5" integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO" crossorigin="anonymous"></script>
+<script>
+    // Function to set the value of the target input
+    function setValue() {
+        return "New Value";
+    }
+
+    // Register the setValue function as the handler for the /set_value endpoint
+    htmx.defineExtension('set_value', function(xhr, elt, path) {
+        const newValue = setValue();
+        const targetInput = document.querySelector(path);
+        if (targetInput) {
+            targetInput.value = newValue;
+        }
+    });
+</script>
+{% block additional_js %}{% endblock %}
+
+</body>
+</html>
