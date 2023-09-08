@@ -10,6 +10,9 @@ On load the dictionary is loaded into redis and local trie for typeahead is buil
 When using typeahead the requests are executed on '/search', on submit the app
 tries to get the corresponding dictionary article from redis.
 
+The seed of this project is based on:
+`<https://github.com/ets-labs/python-dependency-injector/tree/master/examples/miniapps/fastapi-redis>`_
+
 Run
 ---
 
